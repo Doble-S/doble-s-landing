@@ -1,0 +1,18 @@
+import { useScrollToSection } from '../../hooks/useScrollToSection'
+
+function Navbar() {
+    const { scrollTo } = useScrollToSection()
+
+    return (
+        <nav>
+        <button onClick={() => scrollTo('home')}>Inicio</button>
+        <button onClick={() => scrollTo('about')}>Nosotros</button>
+        <button onClick={() => scrollTo('services')}>Servicios</button>
+        <button onClick={() => scrollTo('portfolio')}>Portafolio</button>
+        <button onClick={() => scrollTo('testimonials')}>Testimonios</button>
+        <button onClick={() => scrollTo('contact')}>Contacto</button>
+        </nav>
+    )
+}
+
+export default Navbar
