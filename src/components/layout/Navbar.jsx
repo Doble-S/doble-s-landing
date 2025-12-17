@@ -1,6 +1,6 @@
 import { useScrollToSection } from '../../hooks/useScrollToSection'
 
-function Navbar() {
+export default function Navbar() {
     const { scrollTo } = useScrollToSection()
 
     return (
@@ -14,5 +14,3 @@ function Navbar() {
         </nav>
     )
 }
-
-export default Navbar

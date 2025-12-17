@@ -1,6 +1,6 @@
 import Button from '../../components/common/Button'
 
-function Home() {
+export default function Home() {
     return (
         <section id="home">
         <h1>Mi Landing</h1>
@@ -8,5 +8,3 @@ function Home() {
         </section>
     )
 }
-
-export default Home
