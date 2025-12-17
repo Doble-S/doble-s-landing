@@ -1,21 +1,25 @@
+import './Navbar.css'
 import { useScrollToSection } from '../../../hooks/useScrollToSection'
+import logo from '../../../assets/images/dobles_logo.png'
 
 export default function Navbar() {
     const { scrollTo } = useScrollToSection()
 
     return (
-        <nav>
+        <nav className="navbar">
             <div className="navbar__logo">
-                {/* imagen*/}
-                <span>S</span>
+                {/* aquí puede ir una imagen o texto */}
+                <img src={logo} alt="Logo"/>
             </div>
 
-            <button onClick={() => scrollTo('home')}>Inicio</button>
-            <button onClick={() => scrollTo('about')}>Nosotros</button>
-            <button onClick={() => scrollTo('services')}>Servicios</button>
-            <button onClick={() => scrollTo('portfolio')}>Portafolio</button>
-            <button onClick={() => scrollTo('testimonials')}>Testimonios</button>
-            <button onClick={() => scrollTo('contact')}>Contacto</button>
+            <div className="navbar__links">
+                <button onClick={() => scrollTo('home')}>Inicio</button>
+                <button onClick={() => scrollTo('about')}>Nosotros</button>
+                <button onClick={() => scrollTo('services')}>Servicios</button>
+                <button onClick={() => scrollTo('portfolio')}>Portafolio</button>
+                <button onClick={() => scrollTo('testimonials')}>Testimonios</button>
+                <button onClick={() => scrollTo('contact')}>Contacto</button>
+            </div>
         </nav>
     )
 }
