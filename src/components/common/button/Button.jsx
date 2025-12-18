@@ -6,11 +6,13 @@ export default function Button({
     height,
     onClick,
     type = 'button',
+    disabled = false,
 }) {
     return (
         <button
         type={type}
         onClick={onClick}
+        disabled={disabled}
         className="btn-primary"
         style={{
             width,

@@ -1,0 +1,96 @@
+.testimonials {
+  padding-top: 20px;
+}
+
+/* Centrado */
+.testimonials__grid {
+  display: flex;
+  justify-content: center;
+}
+
+/* Card estilo Figma */
+.testimonials__card {
+  width: 100%;
+  max-width: 500px;   /* 👈 ancho tipo Figma */
+  margin: 0 auto;     /* asegura centrado */
+  background: #eaf6ff;
+  border-radius: 22px;
+  padding: 24px 22px 18px;  /* ↓ proporcional a 28/24 */
+  box-shadow: 0 14px 28px rgba(6, 45, 75, 0.08);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  row-gap: 6px; /* controla la distancia real */
+}
+
+
+/* Texto */
+.testimonials__message {
+  margin: 0;
+  font-size: 22px;     /* antes 26spx */
+  color: #5085ae;
+  line-height: 1.35;   /* antes 1.25 */
+  max-width: 520px;   /* antes 640px */
+}
+
+/* Footer con avatar y datos */
+.testimonials__footer {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.testimonials__avatarWrap {
+  width: 72px;   /* antes 86px */
+  height: 72px;
+  border-radius: 999px;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 24px rgba(6, 45, 75, 0.12);
+  flex: 0 0 auto;
+}
+
+.testimonials__avatar {
+  width: 48px;   /* antes 60px */
+  height: 48px;
+  object-fit: contain;
+}
+
+/* Nombre y rol */
+.testimonials__name {
+  margin: 0;
+  font-size: 20px; /* antes 22px */
+  font-weight: 700;
+  color: #062d4b;
+}
+
+.testimonials__role {
+  margin: 2px 0 0;
+  font-size: 18px; /* antes 20px */
+  color: #5085ae;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonials__card {
+    padding: 22px;
+  }
+
+  .testimonials__message {
+    font-size: 20px;
+  }
+
+  .testimonials__role {
+    font-size: 16px;
+  }
+}
+
+/* Comillas (imagen marks.png) */
+.testimonials__quotesImg {
+  width: 84px;       /* ajusta a gusto (72–90) */
+  height: auto;
+  display: block;
+  margin: 0 0 6px 0; /* distancia mínima al texto */
+}
