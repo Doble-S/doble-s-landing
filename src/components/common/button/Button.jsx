@@ -1,9 +1,23 @@
-function Button({ text, onClick, variant = 'primary' }) {
+import './Button.css';
+
+export default function Button({
+    children,
+    width,
+    height,
+    onClick,
+    type = 'button',
+}) {
     return (
-        <button className={`btn btn-${variant}`} onClick={onClick}>
-        {text}
+        <button
+        type={type}
+        onClick={onClick}
+        className="btn-primary"
+        style={{
+            width,
+            height,
+        }}
+        >
+        {children}
         </button>
     )
 }
-
-export default Button

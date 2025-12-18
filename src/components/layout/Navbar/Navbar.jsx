@@ -7,12 +7,12 @@ export default function Navbar() {
 
     return (
         <nav className="navbar">
-            <div className="navbar__logo">
+            <div className="navbar_logo">
                 {/* aquí puede ir una imagen o texto */}
                 <img src={logo} alt="Logo"/>
             </div>
 
-            <div className="navbar__links">
+            <div className="navbar_links">
                 <button onClick={() => scrollTo('home')}>Inicio</button>
                 <button onClick={() => scrollTo('about')}>Nosotros</button>
                 <button onClick={() => scrollTo('services')}>Servicios</button>

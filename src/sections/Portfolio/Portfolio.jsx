@@ -1,15 +1,16 @@
-import Card from '../../components/ui/Card'
-import { portfolio } from '../../data/portfolio'
+import './Portfolio.css'
+import Container from '../../components/common/container/Container'
+import SectionTitle from '../../components/common/sectiontitle/SectionTitle'
 
-function Portfolio() {
+export default function Portfolio() {
     return (
         <section id="portfolio">
-        <h2>Portafolio</h2>
-        {portfolio.map((item, index) => (
-            <Card key={index} title={item.title} description={item.description} />
-        ))}
+            <Container>
+                <SectionTitle
+                    title="Portafolio"
+                />
+
+            </Container>
         </section>
     )
 }
-
-export default Portfolio

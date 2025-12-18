@@ -1,0 +1,30 @@
+.btn-primary {
+  background: #7405EB;
+  color: #fff;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 0 32px;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(106, 0, 255, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(106, 0, 255, 0.25);
+}

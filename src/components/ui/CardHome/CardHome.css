@@ -1,0 +1,44 @@
+.card {
+    /* Fondo y Bordes */
+    background-color: #EDF7FC; /* Un celeste muy claro y suave */
+    border-radius: 40px;       /* Bordes muy redondeados como en la imagen */
+    
+    /* Dimensiones y Espaciado */
+    width: 280px;              /* Ajusta según tu layout */
+    padding: 40px;             /* Espacio generoso por dentro */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;                 /* Espacio entre el icono, título y texto */
+    
+    /* Tipografía */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+    
+    /* Sombra opcional para dar profundidad (sutil) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.card_icon {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.card_icon img {
+    width: 55px;               /* Ajusta el tamaño de tu imagen/SVG */
+    height: auto;
+}
+
+.card h3 {
+    color: #062D4B;            /* Azul oscuro para el título */
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.card p {
+    color: #5085AE;            /* Azul deslavado/grisáceo para el texto */
+    font-size: 1.1rem;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: 400;
+}
