@@ -12,8 +12,8 @@ export default function WhatWeDoSection() {
     return (
         <section id="what-we-do">
             <Container>
-                <div class="services-header">
-                    <div class="container">
+                <div className="services-header">
+                    <div className="container_header">
                         <h2>¿Qué hacemos?</h2>
                         <p>Desarrollamos páginas web enfocadas en conversión, posicionamiento y crecimiento digital.</p>
                     </div>

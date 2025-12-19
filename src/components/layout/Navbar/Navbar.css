@@ -8,7 +8,9 @@
   justify-content: space-between;
 
   /*background: linear-gradient(90deg, #A7D9FB, #ffffff);*/
-  background-color: #A7D9FB;}
+  background-color: #A7D9FB;
+  z-index: 1000;
+}
 
 /* LOGO */
 .navbar_logo {

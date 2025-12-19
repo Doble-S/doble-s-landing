@@ -1,0 +1,55 @@
+.about-section {
+    padding: 0;
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* Centra verticalmente la imagen con el texto */
+    gap: 40px; /* Espacio entre imagen y texto */
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.mision-item {
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    margin-bottom: 50px;
+}
+
+.mision-item strong {
+    color: #062D4B; /* Azul marino oscuro para las etiquetas */
+    font-weight: 600;
+}
+
+.vision-item {
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+
+.vision-item strong {
+    color: #062D4B; /* Azul marino oscuro para las etiquetas */
+    font-weight: 600;
+}
+
+.text-blue {
+    color: #5085AE; /* Azul grisáceo suave para el cuerpo del texto */
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

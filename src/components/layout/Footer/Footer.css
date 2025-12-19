@@ -1,0 +1,128 @@
+/* Estilos del Footer */
+.footer {
+    background: linear-gradient(180deg, #062D4B 0%, #0E6AB1 100%);
+    color: #ffffff;
+    padding: 70px 20px 30px; /* MÁS ALTO */
+}
+
+/* CONTENEDOR REALMENTE CENTRADO */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* CENTRA TODO */
+    gap: 80px; /* espacio uniforme entre columnas */
+    padding-bottom: 40px;
+}
+
+/* Columnas */
+.footer-col {
+    flex: 0 1 280px; /* evita que se estiren */
+}
+
+/* Títulos */
+.footer h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: #9AD1F5;
+}
+
+.footer h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #9AD1F5;
+}
+
+/* Marca */
+.brand-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-logo {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.brand-col p {
+    font-size: 1.1rem;
+}
+
+/* Contacto */
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-item .icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+}
+
+.contact-item a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Redes */
+.social-links {
+    display: flex;
+    gap: 30px;
+}
+
+.social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    transition: transform 0.2s;
+}
+
+.social-item:hover .social-icon {
+    transform: scale(1.1);
+}
+
+/* Parte inferior */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    padding-top: 25px;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .brand-col {
+        align-items: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}

@@ -2,6 +2,11 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
+
+    max-width: 100%;
+    margin: 0 auto;
+    justify-items: center;
+    align-items: stretch;
 }
 
 @media (max-width: 1024px) {
@@ -23,8 +28,9 @@
     justify-content: center;
 }
 
-.services-header .container {
+.services-header .container_header {
     max-width: 100%; 
+    margin-bottom: 60px;
 }
 
 .services-header h2 {
