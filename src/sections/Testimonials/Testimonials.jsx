@@ -3,6 +3,7 @@ import Container from '../../components/common/container/Container'
 import SectionTitle from '../../components/common/sectiontitle/SectionTitle'
 import Description from '../../components/common/description/Description'
 import { testimonials } from '../../data/testimonials'
+import marks from '../../assets/images/marks.png'
 
 export default function Testimonials() {
   return (
@@ -15,7 +16,7 @@ export default function Testimonials() {
           {testimonials.map((t, index) => (
             <article className="testimonials__card" key={index}>
               <img
-                src="src/assets/images/marks.png"
+                src={marks}
                 alt=""
                 aria-hidden="true"
                 className="testimonials__quotesImg"

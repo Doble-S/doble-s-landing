@@ -1,9 +1,11 @@
+import seinproImg from '../assets/images/seinpro.png'
+
 export const portfolio = [
   {
     title: 'SeinPro',
     tag: 'Web corporativa + SEO',
     description: 'Diseño web moderno y optimizado para motores de búsqueda.',
-    image: 'src/assets/images/seinpro.png',
-    url: 'https://seinproperu.com/', // cambia si tu URL es otra
+    image: seinproImg,
+    url: 'https://seinproperu.com/',
   },
 ]
