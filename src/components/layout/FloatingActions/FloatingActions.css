@@ -1,0 +1,129 @@
+.floating-actions {
+  position: fixed;
+  right: 24px;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  transition: bottom 0.3s ease;
+}
+
+.floating-actions img {
+  width: 50px;
+  height: 50px;
+}
+
+/* BOTONES BASE */
+.fab {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+  cursor: pointer;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  background-color: #25d366;
+  color: white;
+  text-decoration: none;
+}
+
+/* cuando aparece el botón de subir */
+.whatsapp.move-up {
+  transform: translateY(-5px);
+}
+
+/* SCROLL TOP */
+.scroll-top {
+  background-color: #6ec3cc;
+  color: white;
+  border: none;
+}
+
+.scroll-top img {
+  width: 35px;
+  height: 35px;
+}
+/* HOVER */
+.fab:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   RESPONSIVE FLOATING ACTIONS
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .floating-actions {
+    right: 18px;
+  }
+
+  .floating-actions img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .fab {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .floating-actions {
+    right: 14px;
+    gap: 12px;
+  }
+
+  .floating-actions img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .fab {
+    width: 46px;
+    height: 46px;
+  }
+
+  .scroll-top img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .floating-actions {
+    right: 10px;
+    gap: 10px;
+  }
+
+  .floating-actions img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .fab {
+    width: 42px;
+    height: 42px;
+  }
+
+  .scroll-top img {
+    width: 28px;
+    height: 28px;
+  }
+}

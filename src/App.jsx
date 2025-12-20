@@ -10,8 +10,9 @@ import Services from './sections/Services/Services.jsx'
 import Testimonials from './sections/Testimonials/Testimonials.jsx'
 import Contact from './sections/Contact/Contact.jsx'
 import Footer from './components/layout/Footer/Footer.jsx'
+import FloatingActions from './components/layout/FloatingActions/FloatingActions.jsx'
 
-function App() {
+export default function App() {
   //const [count, setCount] = useState(0)
 
   return (
@@ -24,8 +25,7 @@ function App() {
       <Testimonials />
       <Contact />
       <Footer />
+      <FloatingActions />
     </>
   )
 }
-
-export default App

@@ -54,3 +54,113 @@
         font-size: 1.2rem;
     }
 }
+
+/* =========================
+   RESPONSIVE HEADER
+   SOLO WHAT WE DO
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    #what-we-do .services-header h2 {
+        font-size: 2rem;
+    }
+
+    #what-we-do .services-header p {
+        font-size: 1.3rem;
+        line-height: 1.6;
+    }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    #what-we-do .services-header {
+        margin-top: 0;
+    }
+
+    #what-we-do .services-header h2 {
+        font-size: 1.7rem;
+        margin-bottom: 12px;
+    }
+
+    #what-we-do .services-header p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    #what-we-do .services-header .container_header {
+        margin-bottom: 40px;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    #what-we-do .services-header h2 {
+        font-size: 1.5rem;
+    }
+
+    #what-we-do .services-header p {
+        font-size: 1rem;
+    }
+}
+
+/* =========================
+   RESPONSIVE GRID
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    #what-we-do .services_grid {
+        gap: 40px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    #what-we-do .services_grid {
+        gap: 35px;
+    }
+}
+
+/* =========================
+   RESPONSIVE CARD HOME
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    #what-we-do .card {
+        width: 100%;
+        max-width: 320px;
+        padding: 35px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    #what-we-do .card {
+        max-width: 300px;
+        padding: 30px;
+    }
+
+    #what-we-do .card p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    #what-we-do .card {
+        max-width: 260px;
+        padding: 26px;
+    }
+
+    #what-we-do .card h3 {
+        font-size: 1rem;
+    }
+
+    #what-we-do .card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+}

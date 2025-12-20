@@ -39,3 +39,92 @@
   font-size: 30px;
   color: #396E91;
 }
+
+/* =========================
+   RESPONSIVE HERO SECTION
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 70px 0;
+  }
+
+  .hero_content {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .hero_image {
+    width: 420px;
+    margin-left: 60px;
+  }
+
+  /* SectionTitle solo en Hero */
+  #home .section_title {
+    font-size: 42px;
+  }
+
+  .hero_text p {
+    font-size: 18px;
+  }
+
+  .hero_brand {
+    font-size: 26px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 0;
+  }
+
+  .hero_content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  /* ❌ ocultamos imagen en mobile */
+  .hero_image {
+    display: none;
+  }
+
+  .hero_text {
+    max-width: 100%;
+  }
+
+  /* SectionTitle solo en Hero */
+  #home .section_title {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .hero_text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+  }
+
+  .hero_brand {
+    font-size: 22px;
+    margin-bottom: 8px;
+    display: block;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  #home .section_title {
+    font-size: 26px;
+  }
+
+  .hero_text p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .hero_brand {
+    font-size: 20px;
+  }
+}

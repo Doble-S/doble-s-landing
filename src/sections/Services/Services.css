@@ -21,3 +21,89 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================
+   RESPONSIVE SECTION TITLE + DESCRIPTION
+   SOLO EN SERVICES
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    #services .section_title {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    #services .description_section {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        text-align: center;
+    }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    #services .section_title {
+        font-size: 32px;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+
+    #services .description_section {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin: 15px 0 30px;
+        text-align: center;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    #services .section_title {
+        font-size: 26px;
+    }
+
+    #services .description_section {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+}
+
+/* =========================
+   RESPONSIVE SERVICE CARDS
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    #services .services_cards_grid {
+        row-gap: 60px;
+        padding: 10px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    #services .services_cards_grid {
+        row-gap: 50px;
+        padding: 0;
+    }
+
+    #services .card_service {
+        width: 100%;
+        max-width: 320px;
+        padding: 35px;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    #services .card_service {
+        max-width: 280px;
+        padding: 30px;
+    }
+
+    #services .card_service p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}

@@ -25,12 +25,12 @@ export default function Footer() {
 
                     <div className="contact-item">
                         <img src={gmail_logo} alt="Email" className="icon" />
-                        <a href="mailto:dobles@gmail.com">dobles@gmail.com</a>
+                        <a>doblesagiles@gmail.com</a>
                     </div>
 
                     <div className="contact-item">
                         <img src={telephone} alt="Teléfono" className="icon" />
-                        <a href="tel:+51999999999">+51 999 999 999</a>
+                        <a>+51 999 999 999</a>
                     </div>
                 </div>
 
