@@ -1,10 +1,48 @@
+import { useState } from 'react'
 import './Contact.css'
 import Container from '../../components/common/container/Container'
 import SectionTitle from '../../components/common/sectiontitle/SectionTitle'
 import Description from '../../components/common/description/Description'
 import Button from '../../components/common/button/Button'
 
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
+
 export default function Contact() {
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (status === 'sending') return
+
+    setStatus('sending')
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const data = Object.fromEntries(formData.entries())
+
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode(data),
+      })
+
+      if (res.ok) {
+        form.reset()
+        setStatus('success')
+        setTimeout(() => setStatus('idle'), 4000)
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
+
   return (
     <section id="contact" className="contact">
       <Container>
@@ -21,21 +59,25 @@ export default function Contact() {
                 className="contact__form"
                 name="contact"
                 method="POST"
-                action="/gracias"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 data-netlify-recaptcha="true"
+                onSubmit={handleSubmit}
               >
                 <input type="hidden" name="form-name" value="contact" />
-                <input type="hidden" name="bot-field" />
+                <p style={{ display: 'none' }}>
+                  <label>
+                    Don’t fill this out: <input name="bot-field" />
+                  </label>
+                </p>
 
                 <input
                   className="contact__input"
                   type="text"
                   name="name"
                   placeholder="Nombre"
-                  autoComplete="name"
                   required
+                  disabled={status === 'sending'}
                 />
 
                 <input
@@ -43,8 +85,8 @@ export default function Contact() {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  autoComplete="email"
                   required
+                  disabled={status === 'sending'}
                 />
 
                 <textarea
@@ -53,16 +95,29 @@ export default function Contact() {
                   placeholder="Mensaje"
                   rows={5}
                   required
+                  disabled={status === 'sending'}
                 />
 
-                {/* SLOT DEL RECAPTCHA */}
-                <div className="contact__recaptcha" data-netlify-recaptcha="true"></div>
+                {/* reCAPTCHA Netlify */}
+                <div data-netlify-recaptcha="true"></div>
 
                 <div className="contact__actions">
                   <Button width="100%" height="46px" type="submit">
-                    Enviar Mensaje
+                    {status === 'sending' ? 'Enviando…' : 'Enviar Mensaje'}
                   </Button>
                 </div>
+
+                {status === 'success' && (
+                  <p className="contact__feedback contact__feedback--success">
+                    ✅ Mensaje enviado. Te responderemos pronto.
+                  </p>
+                )}
+
+                {status === 'error' && (
+                  <p className="contact__feedback contact__feedback--error">
+                    ❌ Error al enviar. Intenta nuevamente.
+                  </p>
+                )}
               </form>
             </div>
           </div>
