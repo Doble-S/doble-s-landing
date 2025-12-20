@@ -1,6 +1,9 @@
 export const testimonials = [
-    {
-        name: 'Juan Pérez',
-        comment: 'Excelente servicio'
-    }
+  {
+    message:
+      'Un equipo profesional que entendió perfectamente nuestras necesidades y entregó una solución web moderna y eficiente.',
+    name: 'Manuel Bardales',
+    role: 'Fundador y CEO de SeinPro',
+    avatar: 'src/assets/images/seinpro_logo.jpg',
+  },
 ]
