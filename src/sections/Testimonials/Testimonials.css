@@ -11,7 +11,7 @@
 /* Card estilo Figma */
 .testimonials__card {
   width: 100%;
-  max-width: 500px;   /* 👈 ancho tipo Figma */
+  max-width: 500px;   /* ancho tipo Figma */
   margin: 0 auto;     /* asegura centrado */
   background: #eaf6ff;
   border-radius: 22px;
@@ -93,4 +93,135 @@
   height: auto;
   display: block;
   margin: 0 0 6px 0; /* distancia mínima al texto */
+}
+
+/* =========================
+   RESPONSIVE SECTION TITLE + DESCRIPTION
+   SOLO TESTIMONIALS
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  #testimonials .section_title {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  #testimonials .description_section {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  #testimonials .section_title {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  #testimonials .description_section {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 15px 0 35px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  #testimonials .section_title {
+    font-size: 26px;
+  }
+
+  #testimonials .description_section {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}
+
+/* =========================
+   RESPONSIVE CARD TESTIMONIAL
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .testimonials__card {
+    padding: 22px;
+  }
+
+  .testimonials__message {
+    font-size: 21px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .testimonials__header {
+    text-align: center;
+  }
+
+  .testimonials__card {
+    padding: 20px;
+  }
+
+  .testimonials__quotesImg {
+    width: 70px;
+    margin: 0 auto 8px;
+  }
+
+  .testimonials__message {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .testimonials__footer {
+    justify-content: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .testimonials__avatarWrap {
+    width: 64px;
+    height: 64px;
+  }
+
+  .testimonials__avatar {
+    width: 42px;
+    height: 42px;
+  }
+
+  .testimonials__name {
+    font-size: 18px;
+  }
+
+  .testimonials__role {
+    font-size: 15px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .testimonials__card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .testimonials__quotesImg {
+    width: 60px;
+  }
+
+  .testimonials__message {
+    font-size: 16px;
+  }
+
+  .testimonials__name {
+    font-size: 16px;
+  }
+
+  .testimonials__role {
+    font-size: 14px;
+  }
 }

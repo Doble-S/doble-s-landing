@@ -55,7 +55,7 @@ export default function Contact() {
                   required
                 />
 
-                {/* ✅ SLOT DEL RECAPTCHA */}
+                {/* SLOT DEL RECAPTCHA */}
                 <div className="contact__recaptcha" data-netlify-recaptcha="true"></div>
 
                 <div className="contact__actions">
