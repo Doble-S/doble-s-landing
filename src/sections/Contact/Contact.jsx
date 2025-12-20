@@ -22,10 +22,10 @@ export default function Contact() {
 
     const form = e.currentTarget
     const formData = new FormData(form)
-    const data = Object.fromEntries(formData.entries())
+    const data = { 'form-name': 'contact', ...Object.fromEntries(formData.entries()) }
 
     try {
-      const res = await fetch('/', {
+      const res = await fetch(window.location.pathname, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode(data),
@@ -102,7 +102,7 @@ export default function Contact() {
                 <div data-netlify-recaptcha="true"></div>
 
                 <div className="contact__actions">
-                  <Button width="100%" height="46px" type="submit">
+                  <Button width="100%" height="46px" type="submit" disabled={status === 'sending'}>
                     {status === 'sending' ? 'Enviando…' : 'Enviar Mensaje'}
                   </Button>
                 </div>
