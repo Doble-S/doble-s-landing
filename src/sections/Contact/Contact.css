@@ -130,3 +130,9 @@
     transform: rotate(360deg);
   }
 }
+
+.contact__recaptcha {
+  display: flex;
+  justify-content: center;
+}
+
