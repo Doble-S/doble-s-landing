@@ -1,40 +1,91 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './Contact.css'
 import Container from '../../components/common/container/Container'
 import SectionTitle from '../../components/common/sectiontitle/SectionTitle'
 import Description from '../../components/common/description/Description'
 import Button from '../../components/common/button/Button'
 
-function encode(data) {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlgrjewz'
+
+// ⚠️ REEMPLAZA esto por tu Site Key real de Cloudflare Turnstile
+const TURNSTILE_SITE_KEY = '0x4AAAAAACH1BPPkBeHLwVi_'
 
 export default function Contact() {
   const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [token, setToken] = useState('')
+  const captchaRef = useRef(null)
+
+  // ✅ Renderiza Turnstile cuando el script ya cargó
+  useEffect(() => {
+    let mounted = true
+    let widgetId = null
+
+    const tryRender = () => {
+      if (!mounted) return
+      if (!window.turnstile) return
+      if (!captchaRef.current) return
+
+      // Evita doble render si React re-renderiza
+      if (captchaRef.current.childNodes.length > 0) return
+
+      widgetId = window.turnstile.render(captchaRef.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        callback: (t) => setToken(t),
+        'expired-callback': () => setToken(''),
+        'error-callback': () => setToken(''),
+      })
+    }
+
+    // intenta varias veces por si el script demora
+    const interval = setInterval(tryRender, 250)
+    tryRender()
+
+    return () => {
+      mounted = false
+      clearInterval(interval)
+      try {
+        if (window.turnstile && widgetId !== null) {
+          window.turnstile.remove(widgetId)
+        }
+      } catch {}
+    }
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (status === 'sending') return
 
+    // ✅ Obligatorio: que el usuario marque el captcha
+    if (!token) {
+      setStatus('error')
+      return
+    }
+
     setStatus('sending')
 
     const form = e.currentTarget
     const formData = new FormData(form)
-    const data = { 'form-name': 'contact', ...Object.fromEntries(formData.entries()) }
+
+    // ✅ Mandamos el token de Turnstile
+    formData.append('cf-turnstile-response', token)
 
     try {
-      const res = await fetch(window.location.pathname, {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode(data),
+        headers: { Accept: 'application/json' },
+        body: formData,
       })
 
       if (res.ok) {
         form.reset()
+        setToken('')
         setStatus('success')
         setTimeout(() => setStatus('idle'), 4000)
+
+        // opcional: resetear el widget para siguiente envío
+        try {
+          if (window.turnstile) window.turnstile.reset()
+        } catch {}
       } else {
         setStatus('error')
       }
@@ -42,6 +93,8 @@ export default function Contact() {
       setStatus('error')
     }
   }
+
+  const isSending = status === 'sending'
 
   return (
     <section id="contact" className="contact">
@@ -55,29 +108,14 @@ export default function Contact() {
 
           <div className="contact__right">
             <div className="contact__card">
-              <form
-                className="contact__form"
-                name="contact"
-                method="POST"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                data-netlify-recaptcha="true"
-                onSubmit={handleSubmit}
-              >
-                <input type="hidden" name="form-name" value="contact" />
-                <p style={{ display: 'none' }}>
-                  <label>
-                    Don’t fill this out: <input name="bot-field" />
-                  </label>
-                </p>
-
+              <form className="contact__form" onSubmit={handleSubmit}>
                 <input
                   className="contact__input"
                   type="text"
                   name="name"
                   placeholder="Nombre"
                   required
-                  disabled={status === 'sending'}
+                  disabled={isSending}
                 />
 
                 <input
@@ -86,7 +124,7 @@ export default function Contact() {
                   name="email"
                   placeholder="Email"
                   required
-                  disabled={status === 'sending'}
+                  disabled={isSending}
                 />
 
                 <textarea
@@ -95,15 +133,15 @@ export default function Contact() {
                   placeholder="Mensaje"
                   rows={5}
                   required
-                  disabled={status === 'sending'}
+                  disabled={isSending}
                 />
 
-                {/* reCAPTCHA Netlify */}
-                <div data-netlify-recaptcha="true"></div>
+                {/* ✅ CAPTCHA visible */}
+                <div className="contact__captcha" ref={captchaRef} />
 
                 <div className="contact__actions">
-                  <Button width="100%" height="46px" type="submit" disabled={status === 'sending'}>
-                    {status === 'sending' ? 'Enviando…' : 'Enviar Mensaje'}
+                  <Button width="100%" height="46px" type="submit" disabled={isSending}>
+                    {isSending ? 'Enviando…' : 'Enviar Mensaje'}
                   </Button>
                 </div>
 
@@ -115,7 +153,7 @@ export default function Contact() {
 
                 {status === 'error' && (
                   <p className="contact__feedback contact__feedback--error">
-                    ❌ Error al enviar. Intenta nuevamente.
+                    ❌ Completa el CAPTCHA y vuelve a intentar.
                   </p>
                 )}
               </form>
