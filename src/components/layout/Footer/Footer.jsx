@@ -30,7 +30,7 @@ export default function Footer() {
 
                     <div className="contact-item">
                         <img src={telephone} alt="Teléfono" className="icon" />
-                        <a>+51 999 999 999</a>
+                        <a>+51 970 042 683</a>
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@ export default function Footer() {
 
                     <div className="social-links">
                         <a
-                            href="https://facebook.com"
+                            href="https://www.facebook.com/people/Doble-S/61578512648033/"
                             target="_blank"
                             rel="noreferrer"
                             className="social-item"
