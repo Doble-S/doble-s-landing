@@ -30,8 +30,7 @@ export default function Footer() {
 
                     <div className="contact-item">
                         <img src={telephone} alt="Teléfono" className="icon" />
-                        <a>+51 989 983 659</a>
-                        <a>+51 970 042 683</a>
+                        <a>+51 989 983 659 <br> +51 970 042 683</a>
                     </div>
                 </div>
 
