@@ -36,7 +36,7 @@ export default function FloatingActions() {
   }
 
   const whatsappLink =
-    'https://wa.me/51970042683?text=Hola,%20quiero%20más%20información'
+    'https://wa.me/51989983659?text=Hola,%20quiero%20más%20información'
 
   return (
     <div className="floating-actions" style={{ bottom: offsetBottom }}>
